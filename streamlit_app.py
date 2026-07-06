@@ -206,9 +206,7 @@ def build_annual_chart(
                 ["months_available"]
             ].to_numpy(),
             hovertemplate=(
-                "<b>%{x|%Y}</b><br>"
                 "Mean radiance: %{y:.3f}<br>"
-                "Months available: %{customdata[0]:.0f}"
                 "<extra></extra>"
             ),
         )
