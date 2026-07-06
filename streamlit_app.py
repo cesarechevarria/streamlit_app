@@ -127,7 +127,7 @@ def build_monthly_chart(
     )
 
     figure.update_layout(
-        title=None,
+        title_text="",
         xaxis_title="Year",
         yaxis_title="Mean radiance",
         height=480,
@@ -160,8 +160,8 @@ def calculate_annual_mean(
     region_data: pd.DataFrame,
 ) -> pd.DataFrame:
     """
-    Calculate the mean of the available monthly mean-radiance
-    observations for each year.
+    Calculate the annual average of the available monthly
+    mean-radiance observations.
     """
     annual_data = (
         region_data.groupby(
@@ -177,8 +177,11 @@ def calculate_annual_mean(
     )
 
     annual_data["date"] = pd.to_datetime(
-        annual_data["year"].astype(str),
-        format="%Y",
+        {
+            "year": annual_data["year"],
+            "month": 1,
+            "day": 1,
+        }
     )
 
     return annual_data
@@ -199,18 +202,20 @@ def build_annual_chart(
             line={
                 "width": 2,
             },
-            customdata=annual_data[["months_available"]],
+            customdata=annual_data[
+                ["months_available"]
+            ].to_numpy(),
             hovertemplate=(
                 "<b>%{x|%Y}</b><br>"
                 "Mean radiance: %{y:.3f}<br>"
-                "Months available: %{customdata[0]}"
+                "Months available: %{customdata[0]:.0f}"
                 "<extra></extra>"
             ),
         )
     )
 
     figure.update_layout(
-        title=None,
+        title_text="",
         xaxis_title="Year",
         yaxis_title="Mean radiance",
         height=480,
@@ -348,11 +353,6 @@ annual_data = calculate_annual_mean(region_data)
 
 
 st.subheader("Annual mean radiance")
-
-st.caption(
-    "Each annual value is the average of the available monthly "
-    "mean-radiance observations for that year."
-)
 
 annual_chart = build_annual_chart(annual_data)
 
