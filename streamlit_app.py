@@ -297,13 +297,17 @@ def apply_chart_style(
             "size": 14,
             "color": COLORS["text"],
         },
-        title_standoff=22,
+        title_standoff=30,   # more space between "Year" and tick labels
     )
 
     figure.update_yaxes(
         automargin=True,
-        showline=True,
-        showgrid=False,
+        showline=True,       # bring back visible y-axis line
+        linecolor=COLORS["border"],
+        linewidth=1,
+        ticks="outside",
+        tickcolor=COLORS["border"],
+        showgrid=False,      # keep gridlines removed
         zeroline=False,
         tickfont={
             "size": 12,
@@ -313,7 +317,7 @@ def apply_chart_style(
             "size": 14,
             "color": COLORS["text"],
         },
-        title_standoff=22,
+        title_standoff=28,   # more space between y-title and tick labels
     )
 
     return figure
