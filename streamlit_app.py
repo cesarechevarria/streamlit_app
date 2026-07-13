@@ -442,9 +442,9 @@ def build_annual_chart(
         yaxis_title="Mean radiance",
         height=480,
         margin={
-            "l": 90,
-            "r": 28,
-            "t": 24,
+            "l": 85,
+            "r": 25,
+            "t": 25,
             "b": 85,
         },
         hovermode="x unified",
@@ -456,6 +456,9 @@ def build_annual_chart(
         tickformat="%Y",
         dtick="M12",
         tickangle=-45,
+        unifiedhovertitle={
+        "text": "<b>%{x|%Y}</b>",
+    },
     )
 
     figure.update_yaxes(
