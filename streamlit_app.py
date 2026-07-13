@@ -340,7 +340,6 @@ def build_monthly_chart(
                 "width": 2.6,
             },
             hovertemplate=(
-                "<b>%{x|%B %Y}</b><br>"
                 "Mean radiance: %{y:.3f}"
                 "<extra></extra>"
             ),
