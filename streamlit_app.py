@@ -302,7 +302,7 @@ def apply_chart_style(
 
     figure.update_yaxes(
         automargin=True,
-        showline=False,
+        showline=True,
         showgrid=False,
         zeroline=False,
         tickfont={
