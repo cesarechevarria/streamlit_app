@@ -298,19 +298,16 @@ def apply_chart_style(
             "color": COLORS["text"],
         },
         title_standoff=15,
-        unifiedhovertitle={
-        "text": "<b>%{x|%B %Y}</b>",
-        },
     )
 
     figure.update_yaxes(
         automargin=True,
-        showline=True,       
+        showline=True,
         linecolor=COLORS["border"],
         linewidth=1,
         ticks="outside",
         tickcolor=COLORS["border"],
-        showgrid=False,      
+        showgrid=False,
         zeroline=False,
         tickfont={
             "size": 12,
@@ -320,7 +317,7 @@ def apply_chart_style(
             "size": 14,
             "color": COLORS["text"],
         },
-        title_standoff=15,   
+        title_standoff=15,
     )
 
     return figure
@@ -364,11 +361,17 @@ def build_monthly_chart(
         showlegend=False,
     )
 
+    figure = apply_chart_style(figure)
+
     figure.update_xaxes(
+        type="date",
         showgrid=False,
         tickformat="%Y",
         dtick="M12",
         tickangle=-45,
+        unifiedhovertitle={
+            "text": "<b>%{x|%B %Y}</b>",
+        },
     )
 
     figure.update_yaxes(
@@ -376,7 +379,7 @@ def build_monthly_chart(
         tickformat=".3f",
     )
 
-    return apply_chart_style(figure)
+    return figure
 
 
 def calculate_annual_mean(
@@ -451,13 +454,18 @@ def build_annual_chart(
         showlegend=False,
     )
 
+    figure = apply_chart_style(figure)
+
     figure.update_xaxes(
         type="linear",
         showgrid=False,
-        tickformat="%Y",
-        hoverformat="%Y",
-        dtick="M12",
+        tickmode="linear",
+        dtick=1,
+        tickformat="d",
         tickangle=-45,
+        unifiedhovertitle={
+            "text": "<b>%{x:.0f}</b>",
+        },
     )
 
     figure.update_yaxes(
@@ -465,7 +473,7 @@ def build_annual_chart(
         tickformat=".3f",
     )
 
-    return apply_chart_style(figure)
+    return figure
 
 
 st.title("VIIRS-like radiance")
