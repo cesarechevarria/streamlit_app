@@ -297,7 +297,7 @@ def apply_chart_style(
             "size": 14,
             "color": COLORS["text"],
         },
-        title_standoff=30,   # more space between "Year" and tick labels
+        title_standoff=20,   # more space between "Year" and tick labels
     )
 
     figure.update_yaxes(
