@@ -454,9 +454,9 @@ def build_annual_chart(
     figure.update_xaxes(
         type="linear",
         showgrid=False,
-        tickmode="linear",
-        dtick=1,
-        tickformat="d",
+        tickformat="%Y",
+        hoverformat="%Y",
+        dtick="M12",
         tickangle=-45,
     )
 
