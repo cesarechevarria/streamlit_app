@@ -317,7 +317,7 @@ def apply_chart_style(
             "size": 14,
             "color": COLORS["text"],
         },
-        title_standoff=28,   
+        title_standoff=15,   
     )
 
     return figure
