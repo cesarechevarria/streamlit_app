@@ -297,7 +297,10 @@ def apply_chart_style(
             "size": 14,
             "color": COLORS["text"],
         },
-        title_standoff=15,   
+        title_standoff=15,
+        unifiedhovertitle={
+        "text": "<b>%{x|%B %Y}</b>",
+        },
     )
 
     figure.update_yaxes(
