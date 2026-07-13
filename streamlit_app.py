@@ -353,10 +353,10 @@ def build_monthly_chart(
         yaxis_title="Mean radiance",
         height=480,
         margin={
-            "l": 28,
-            "r": 24,
+            "l": 90,
+            "r": 28,
             "t": 24,
-            "b": 28,
+            "b": 85,
         },
         hovermode="x unified",
         showlegend=False,
