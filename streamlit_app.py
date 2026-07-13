@@ -3,11 +3,6 @@ import plotly.graph_objects as go
 import streamlit as st
 
 
-DATA_URL = (import pandas as pd
-import plotly.graph_objects as go
-import streamlit as st
-
-
 DATA_URL = (
     "https://www.dropbox.com/scl/fi/"
     "murzdd6px690kfmylcwme/"
