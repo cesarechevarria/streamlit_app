@@ -36,8 +36,7 @@ COLORS = {
 
 
 st.set_page_config(
-    page_title="VIIRS-like Radiance",
-    page_icon="🌃",
+    page_title="VIIRS-like radiance",
     layout="wide",
 )
 
