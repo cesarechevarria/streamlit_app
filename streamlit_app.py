@@ -418,7 +418,7 @@ def build_annual_chart(
 
     figure.add_trace(
         go.Scatter(
-            x=annual_data["date"],
+            x=annual_data["year"],
             y=annual_data["annual_mean"],
             mode="lines",
             name="Annual mean",
@@ -430,7 +430,7 @@ def build_annual_chart(
                 ["months_available"]
             ].to_numpy(),
             hovertemplate=(
-                "Mean radiance: %{y:.3f}<br>"
+                "Mean radiance: %{y:.3f}"
                 "<extra></extra>"
             ),
         )
@@ -452,13 +452,12 @@ def build_annual_chart(
     )
 
     figure.update_xaxes(
+        type="linear",
         showgrid=False,
-        tickformat="%Y",
-        dtick="M12",
+        tickmode="linear",
+        dtick=1,
+        tickformat="d",
         tickangle=-45,
-        unifiedhovertitle={
-        "text": "<b>%{x|%Y}</b>",
-    },
     )
 
     figure.update_yaxes(
